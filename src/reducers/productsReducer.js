@@ -6,13 +6,31 @@ import {
 
 // cada reducer tiene su propio state
 const initialState = {
-    productos: [],
-    error: null,
+    products: [],
+    error: false,
     loading: false,
 }
 
 export default function(state = initialState, action) {
     switch (action.type) {
+
+        case ADD_PRODUCT:
+            return {
+                ...state,
+                loading: action.payload
+            }
+        case ADD_PRODUCT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                products: [...state.products, action.payload]
+            }
+            case ADD_PRODUCT_FAILURE:
+                return {
+                    ...state,
+                    loading: false,
+                    error: action.payload
+                }
         default:
             return state;
     }
