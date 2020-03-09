@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 function App() {
+  console.log(process.env.REACT_APP_URLAPI);
   return (
     <Router>
     
