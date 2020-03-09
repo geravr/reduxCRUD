@@ -1,34 +1,64 @@
 {
-  "productos": [
+  "products": [
     {
-      "id": 1,
-      "nombre": "Curso HTML & CSS",
-      "precio": "1700"
+      "name": "Curso HTML & CSS",
+      "price": "1700",
+      "id": 1
     },
     {
-      "id": 2,
-      "nombre": "Curso JavaScript ES6+",
-      "precio": "900"
+      "name": "Curso JavaScript ES6+",
+      "price": "900",
+      "id": 2
     },
     {
-      "nombre": "Curso React",
-      "precio": "1300",
+      "name": "Curso React",
+      "price": "1300",
       "id": 3
     },
     {
-      "nombre": "Curso Redux - React",
-      "precio": "400",
+      "name": "Curso Redux - React",
+      "price": "400",
       "id": 4
     },
     {
-      "nombre": "Curso Next Js",
-      "precio": "500",
+      "name": "Curso Next Js",
+      "price": "500",
       "id": 5
     },
     {
       "name": "Prueba",
       "price": 3443,
       "id": 6
+    },
+    {
+      "name": "Prueba 2",
+      "price": 34435,
+      "id": 7
+    },
+    {
+      "name": "Prueba 3",
+      "price": 454,
+      "id": 8
+    },
+    {
+      "name": "Prueba 4",
+      "price": 3434,
+      "id": 9
+    },
+    {
+      "name": "Prueba 5",
+      "price": 23424,
+      "id": 10
+    },
+    {
+      "name": "Hola",
+      "price": 234,
+      "id": 11
+    },
+    {
+      "name": "Prueba 6",
+      "price": 3423,
+      "id": 12
     }
   ]
 }
