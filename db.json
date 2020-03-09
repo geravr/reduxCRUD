@@ -24,41 +24,6 @@
       "name": "Curso Next Js",
       "price": "500",
       "id": 5
-    },
-    {
-      "name": "Prueba",
-      "price": 3443,
-      "id": 6
-    },
-    {
-      "name": "Prueba 2",
-      "price": 34435,
-      "id": 7
-    },
-    {
-      "name": "Prueba 3",
-      "price": 454,
-      "id": 8
-    },
-    {
-      "name": "Prueba 4",
-      "price": 3434,
-      "id": 9
-    },
-    {
-      "name": "Prueba 5",
-      "price": 23424,
-      "id": 10
-    },
-    {
-      "name": "Hola",
-      "price": 234,
-      "id": 11
-    },
-    {
-      "name": "Prueba 6",
-      "price": 3423,
-      "id": 12
     }
   ]
 }

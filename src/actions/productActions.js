@@ -1,10 +1,13 @@
 import {
     ADD_PRODUCT,
-    ADD_PRODUCT_SUCCESS,
-    ADD_PRODUCT_FAILURE,
+    SUCCESS_ADD_PRODUCT,
+    FAILURE_ADD_PRODUCT,
     START_PRODUCTS_DOWNLOAD,
     SUCCESS_PRODUCTS_DOWNLOAD,
-    FAILURE_PRODUCTS_DOWNLOAD
+    FAILURE_PRODUCTS_DOWNLOAD,
+    GET_PRODUCT_DELETE,
+    SUCCESS_PRODUCT_DELETE,
+    FAILURE_PRODUCT_DELETE
 } from '../types';
 
 import axiosClient from '../config/axios';
@@ -50,13 +53,13 @@ const addProduct = () => ({
 
 // Si el producto, se guarda en la base de datos
 const addProductSuccess = product => ({
-    type: ADD_PRODUCT_SUCCESS,
+    type: SUCCESS_ADD_PRODUCT,
     payload: product
 });
 
 // Si hay un error
 const addProductFailure = error => ({
-    type: ADD_PRODUCT_FAILURE,
+    type: FAILURE_ADD_PRODUCT,
     payload: error
 });
 
@@ -89,3 +92,39 @@ const failureProductsDownload = () => ({
     type: FAILURE_PRODUCTS_DOWNLOAD,
     payload: true
 });
+
+// Selecciona y elimina producto
+export function deleteProductAction(id) {
+    return async (dispatch) => {
+        dispatch(getProductDelete(id));
+        
+        try {
+            const result = await axiosClient.delete(`/products/${id}`);
+            dispatch( successProductDelete() );
+
+            //si se elimina, mostrar alerta
+            Swal.fire(
+                '¡Eliminado!',
+                'El producto ha sido eliminado.',
+                'Éxito'
+            )
+        } catch (error) {
+            console.log(error);
+            dispatch( failureProductDelete() );
+        }
+    }
+}
+
+const getProductDelete = id => ({
+    type: GET_PRODUCT_DELETE,
+    payload: id
+});
+
+const successProductDelete = () => ({
+    type: SUCCESS_PRODUCT_DELETE
+});
+
+const  failureProductDelete = () => ({
+    type: FAILURE_PRODUCT_DELETE,
+    payload: true
+})
