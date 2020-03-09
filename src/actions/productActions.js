@@ -69,7 +69,8 @@ export function getProductsAction() {
             const response = await axiosClient.get('/products');
             dispatch( successProductsDownload(response.data) );
         } catch (error) {
-            
+            console.log(error)
+            dispatch( failureProductsDownload() );
         }
     }
 }
@@ -82,4 +83,9 @@ const downloadProducts = () => ({
 const successProductsDownload = products => ({
     type: SUCCESS_PRODUCTS_DOWNLOAD,
     payload: products
-})
+});
+
+const failureProductsDownload = () => ({
+    type: FAILURE_PRODUCTS_DOWNLOAD,
+    payload: true
+});

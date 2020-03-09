@@ -29,6 +29,7 @@ export default function(state = initialState, action) {
                 loading: false,
                 products: [...state.products, action.payload]
             }
+            case FAILURE_PRODUCTS_DOWNLOAD:
             case ADD_PRODUCT_FAILURE:
                 return {
                     ...state,
