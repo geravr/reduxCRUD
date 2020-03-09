@@ -2,7 +2,11 @@ import {
     ADD_PRODUCT,
     ADD_PRODUCT_SUCCESS,
     ADD_PRODUCT_FAILURE,
+    START_PRODUCTS_DOWNLOAD,
+    SUCCESS_PRODUCTS_DOWNLOAD,
+    FAILURE_PRODUCTS_DOWNLOAD
 } from '../types';
+
 import axiosClient from '../config/axios';
 import Swal from 'sweetalert2';
 
@@ -55,3 +59,27 @@ const addProductFailure = error => ({
     type: ADD_PRODUCT_FAILURE,
     payload: error
 });
+
+// Función que descarga productos de la db
+export function getProductsAction() {
+    return async (dispatch) => {
+        dispatch( downloadProducts() );
+
+        try {
+            const response = await axiosClient.get('/products');
+            dispatch( successProductsDownload(response.data) );
+        } catch (error) {
+            
+        }
+    }
+}
+
+const downloadProducts = () => ({
+    type: START_PRODUCTS_DOWNLOAD,
+    payload: true
+});
+
+const successProductsDownload = products => ({
+    type: SUCCESS_PRODUCTS_DOWNLOAD,
+    payload: products
+})
